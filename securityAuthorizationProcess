@@ -4,7 +4,7 @@ function EcumenContractoronFormSubmit(e) {
   
   // General Variables - Applicable to all who pass logic checks
   
-  var saApproverEmail = 'saforms@ecumen.org'; // will change to saforms@ecumen.org
+  var saApproverEmail = 'saforms@ecumen.org';
   var time = e.values[0];
   var submitterEmailAddress = e.values[1];
   var employeeType = e.values[2];
@@ -50,6 +50,12 @@ function EcumenContractoronFormSubmit(e) {
   var pccAccessNeededPC = e.values[21];
   var lawsonAccessNeeded = e.values[22];
   var lawsonAccessType = e.values[23];
+  
+  // Variables for ABX Tracker
+  
+  var abxTrackerNeededKioskUser = e.values[24];
+  var abxTrackerNeededPCUser = e.values[25];
+                                         
 
   
   // // // // Variable declarations for email // // // //
@@ -65,8 +71,8 @@ function EcumenContractoronFormSubmit(e) {
   
   // ONLY MESSAGE THAT SENDS - EDIT THE KIOSKPCC ONES IF YOU NEED TO CHANGE THINGS
     
-  var hiringManagerMessageKioskPCC = "Hello,<br><br>Ecumen Business Transformation and Technology has received a request for a new user with access needs beyond their typical role. Please see the details below related to this request.<br><br><table border='1px',width='100%'><tr><td><b>Time of Request:</b> " + time + "</td></tr><tr><td><b>Email Address of Form Submitter:</b> " + submitterEmailAddress + "</td></tr><tr><td><b>Employee Type:</b> " + employeeType + "</td></tr><tr><td><b>Name:</b> " + employeeFirstLastName + "</td></tr><tr><td><b>Employee Number:</b> " + employeeNumber + "</td></tr><tr><td><b>Nature of Request:</b> " + natureOfRequest1 + natureOfRequest2 + "</td></tr><tr><td><b>Device Type Needed:</b> " + deviceTypeNeeded + "</td></tr><tr><td><b>Position:</b> " + employeePosition + "</td></tr><tr><td><b>Location:</b> " + employeeLocation + "</td></tr><tr><td><b>Additional Notes:</b> " + notes + "</td></tr><tr><td><b>Access Type Needed for Kiosk:</b> " + kioskAccessType + "</td></tr><tr><td><b>PCC Access Needed for Kiosk:</b> " + kioskPCCAccessType + "</td></tr><tr><td><b>SM Access Needed for Kiosk:</b> " + kioskSMAccessType + "</td></tr><tr><td><b>Access Type Needed for PC:</b> " + technologyAccessNeededPC + "</td></tr><tr><td><b>ServiceMinder Access Needed for PC, if any:</b> " + serviceMinderAccessNeededPC + "</td></tr><tr><td><b>PointClickCare Access Needed for PC, if any:</b> " + pccAccessNeededPC + "</td></tr><tr><td><b>Lawson Access Needed?</b> " + lawsonAccessNeeded + "</td></tr><tr><td><b>Lawson Access Type, if any:</b> " + lawsonAccessType + "</td></tr></table><br><br>If you believe you've received this message in error or if any of the details above are incorrect, please contact saforms@ecumen.org to notify our team.<br><br>Thank you,<br><br><b>The Ecumen Business Transformation and Technology Team</b><br><br>";
-  var saApproverMessageKioskPCC = "Hello,<br><br>You have received a request for a new user with access needs beyond their typical role. Please see the details below related to this request.<br><br><table border='1px',width='100%'><tr><td><b>Time of Request:</b> " + time + "</td></tr><tr><td><b>Email Address of Form Submitter:</b> " + submitterEmailAddress + "</td></tr><tr><td><b>Employee Type:</b> " + employeeType + "</td></tr><tr><td><b>Name:</b> " + employeeFirstLastName + "</td></tr><tr><td><b>Employee Number:</b> " + employeeNumber + "</td></tr><tr><td><b>Nature of Request:</b> " + natureOfRequest1 + natureOfRequest2 + "</td></tr><tr><td><b>Device Type Needed:</b> " + deviceTypeNeeded + "</td></tr><tr><td><b>Position:</b> " + employeePosition + "</td></tr><tr><td><b>Location:</b> " + employeeLocation + "</td></tr><tr><td><b>Additional Notes:</b> " + notes + "</td></tr><tr><td><b>Access Type Needed for Kiosk:</b> " + kioskAccessType + "</td></tr><tr><td><b>PCC Access Needed for Kiosk:</b> " + kioskPCCAccessType + "</td></tr><tr><td><b>SM Access Needed for Kiosk:</b> " + kioskSMAccessType + "</td></tr><tr><td><b>Access Type Needed for PC:</b> " + technologyAccessNeededPC + "</td></tr><tr><td><b>ServiceMinder Access Needed for PC, if any:</b> " + serviceMinderAccessNeededPC + "</td></tr><tr><td><b>PointClickCare Access Needed for PC, if any:</b> " + pccAccessNeededPC + "</td></tr><tr><td><b>Lawson Access Needed?</b> " + lawsonAccessNeeded + "</td></tr><tr><td><b>Lawson Access Type, if any:</b> " + lawsonAccessType + "</td></tr></table><br><br>If you believe you've received this message in error or if any of the details above are incorrect, please contact the submitter at " + submitterEmailAddress + " to ask them for more details.<br><br>Thank you!<br><br>";
+  var hiringManagerMessageKioskPCC = "Hello,<br><br>Ecumen Business Transformation and Technology has received a request for a new user with access needs beyond their typical role. Please see the details below related to this request.<br><br><table border='1px',width='100%'><tr><td><b>Time of Request:</b> " + time + "</td></tr><tr><td><b>Email Address of Form Submitter:</b> " + submitterEmailAddress + "</td></tr><tr><td><b>Employee Type:</b> " + employeeType + "</td></tr><tr><td><b>Name:</b> " + employeeFirstLastName + "</td></tr><tr><td><b>Employee Number:</b> " + employeeNumber + "</td></tr><tr><td><b>Nature of Request:</b> " + natureOfRequest1 + natureOfRequest2 + "</td></tr><tr><td><b>Device Type Needed:</b> " + deviceTypeNeeded + "</td></tr><tr><td><b>Position:</b> " + employeePosition + "</td></tr><tr><td><b>Location:</b> " + employeeLocation + "</td></tr><tr><td><b>Additional Notes:</b> " + notes + "</td></tr><tr><td><b>Access Type Needed for Kiosk:</b> " + kioskAccessType + "</td></tr><tr><td><b>PCC Access Needed for Kiosk:</b> " + kioskPCCAccessType + "</td></tr><tr><td><b>SM Access Needed for Kiosk:</b> " + kioskSMAccessType + "</td></tr><tr><td><b>Access Type Needed for PC:</b> " + technologyAccessNeededPC + "</td></tr><tr><td><b>ServiceMinder Access Needed for PC, if any:</b> " + serviceMinderAccessNeededPC + "</td></tr><tr><td><b>PointClickCare Access Needed for PC, if any:</b> " + pccAccessNeededPC + "</td></tr><tr><td><b>ABX Tracker Access Needed?</b> " + abxTrackerNeededKioskUser + abxTrackerNeededPCUser + "</td></tr><tr><td><b>Lawson Access Needed?</b> " + lawsonAccessNeeded + "</td></tr><tr><td><b>Lawson Access Type, if any:</b> " + lawsonAccessType + "</td></tr></table><br><br>If you believe you've received this message in error or if any of the details above are incorrect, please contact saforms@ecumen.org to notify our team.<br><br>Thank you,<br><br><b>The Ecumen Business Transformation and Technology Team</b><br><br>";
+  var saApproverMessageKioskPCC = "Hello,<br><br>You have received a request for a new user with access needs beyond their typical role. Please see the details below related to this request.<br><br><table border='1px',width='100%'><tr><td><b>Time of Request:</b> " + time + "</td></tr><tr><td><b>Email Address of Form Submitter:</b> " + submitterEmailAddress + "</td></tr><tr><td><b>Employee Type:</b> " + employeeType + "</td></tr><tr><td><b>Name:</b> " + employeeFirstLastName + "</td></tr><tr><td><b>Employee Number:</b> " + employeeNumber + "</td></tr><tr><td><b>Nature of Request:</b> " + natureOfRequest1 + natureOfRequest2 + "</td></tr><tr><td><b>Device Type Needed:</b> " + deviceTypeNeeded + "</td></tr><tr><td><b>Position:</b> " + employeePosition + "</td></tr><tr><td><b>Location:</b> " + employeeLocation + "</td></tr><tr><td><b>Additional Notes:</b> " + notes + "</td></tr><tr><td><b>Access Type Needed for Kiosk:</b> " + kioskAccessType + "</td></tr><tr><td><b>PCC Access Needed for Kiosk:</b> " + kioskPCCAccessType + "</td></tr><tr><td><b>SM Access Needed for Kiosk:</b> " + kioskSMAccessType + "</td></tr><tr><td><b>Access Type Needed for PC:</b> " + technologyAccessNeededPC + "</td></tr><tr><td><b>ServiceMinder Access Needed for PC, if any:</b> " + serviceMinderAccessNeededPC + "</td></tr><tr><td><b>PointClickCare Access Needed for PC, if any:</b> " + pccAccessNeededPC + "</td></tr><tr><td><b>ABX Tracker Access Needed?</b> " + abxTrackerNeededKioskUser + abxTrackerNeededPCUser + "</td></tr><tr><td><b>Lawson Access Needed?</b> " + lawsonAccessNeeded + "</td></tr><tr><td><b>Lawson Access Type, if any:</b> " + lawsonAccessType + "</td></tr></table><br><br>If you believe you've received this message in error or if any of the details above are incorrect, please contact the submitter at " + submitterEmailAddress + " to ask them for more details.<br><br>Thank you!<br><br>";
     
   var hiringManagerMessageKioskSM = "Hello,<br><br>Ecumen Business Transformation and Technology has received a request for a new kiosk user with access needs beyond their typical role. Please see the details below related to this request.<br><br><table border='1px',width='100%'><tr><td><b>Time of Request:</b> " + time + "</td></tr><tr><td><b>Email Address of Form Submitter:</b> " + submitterEmailAddress + "</td></tr><tr><td><b>Name:</b> " + employeeFirstLastName + "</td></tr><tr><td><b>Employee Number:</b> " + employeeNumber + "</td></tr><tr><td><b>Nature of Request:</b> " + natureOfRequest1 + natureOfRequest2 + "</td></tr><tr><td><b>Position:</b> " + employeePosition + "</td></tr><tr><td><b>Location:</b> " + employeeLocation + "</td></tr><tr><td><b>Additional Notes:</b> " + notes + "</td></tr><tr><td><b>Access Type Needed for Kiosk:</b> " + kioskAccessType + "</td></tr><tr><td><b>SM Access Needed for Kiosk:</b> " + kioskSMAccessType + "</td></tr></table><br><br>If you believe you've received this message in error or if any of the details above are incorrect, please contact saforms@ecumen.org to notify our team.<br><br>Thank you,<br><br><b>The Ecumen Business Transformation and Technology Team</b><br><br>";
   var saApproverMessageKioskSM = "Hello,<br><br>You have received a request for a new kiosk user with access needs beyond their typical role. Please see the details below related to this request.<br><br><table border='1px',width='100%'><tr><td><b>Time of Request:</b> " + time + "</td></tr><tr><td><b>Email Address of Form Submitter:</b> " + submitterEmailAddress + "</td></tr><tr><td><b>Employee Type:</b> " + employeeType + "</td></tr><tr><td><b>Name:</b> " + employeeFirstLastName + "</td></tr><tr><td><b>Employee Middle Initial:</b> " + employeeMiddleInitial + "</td></tr><tr><td><b>Employee Number:</b> " + employeeNumber + "</td></tr><tr><td><b>Nature of Request:</b> " + natureOfRequest1 + natureOfRequest2 + "</td></tr><tr><td><b>Position:</b> " + employeePosition + "</td></tr><tr><td><b>Location:</b> " + employeeLocation + "</td></tr><tr><td><b>Additional Notes:</b> " + notes + "</td></tr><tr><td><b>Access Type Needed for Kiosk:</b> " + kioskAccessType + "</td></tr><tr><td><b>SM Access Needed:</b> " + kioskSMAccessType + "</td></tr></table><br><br>If you believe you've received this message in error or if any of the details above are incorrect, please contact the submitter at " + submitterEmailAddress + " to ask them for more details.<br><br>Thank you!<br><br>";
@@ -118,6 +124,60 @@ function EcumenContractoronFormSubmit(e) {
   
   
 // // // // END IFS
+                
+}
+
+///////////// ***************
+///////////// ***************
+
+RSL CODE - Input separately as script to the RSL Google Sheet
+
+function RSLonFormSubmit(e) {
+  
+  // Variable declarations - pulling from sheet/form
+  
+  var saApproverEmail = 'saforms@ecumen.org'; // will change to saforms@ecumen.org
+  var time = e.values[0];
+  var submitterEmail = e.values[1];
+  var hiringManagerEmail = e.values[2];
+  var employeeFirstLastName = e.values[3];
+  var employeeMiddleInitial = e.values[4];
+  var employeeRNumber = e.values[5];
+  var employeePosition = e.values[6];
+  var employeeLocation = e.values[7];
+  var notes = e.values[8];
+  var natureOfRequest = e.values[9];
+  var emailAccessNeeded = e.values[10];
+  var serviceMinderAccessNeeded = e.values[11];
+  var serviceMinderAccessType = e.values[12];
+  var certifyHipaaCompliance = e.values[13];
+  
+  // Variable declarations for email
+  
+  var subject = "New Security Access Request for RSL Received"
+  var hiringManagerMessage = "Hello,<br><br>Ecumen IT has received a new request related to security access for an employee you are either hiring, terminating, or that is transferring positions. Please see the details below related to this request.<br><br><table border='1px',width='100%'><tr><td><b>Time of Request:</b> " + time + "</td></tr><tr><td><b>Email Address of Form Submitter:</b> " + submitterEmail + "</td></tr><tr><td><b>Nature of Request:</b> " + natureOfRequest + "</td></tr><tr><td><b>Name:</b> " + employeeFirstLastName + "</td></tr><tr><td><b>Employee R Number:</b> " + employeeRNumber + "</td></tr><tr><td><b>Position:</b> " + employeePosition + "</td></tr><tr><td><b>Location:</b> " + employeeLocation + "</td></tr><tr><td><b>Additional Notes:</b> " + notes + "</td></tr><tr><td><b>Email Access Needed:</b> " + emailAccessNeeded + "</td></tr><tr><td><b>ServiceMinder Access Needed:</b> " + serviceMinderAccessNeeded + "</td></tr><tr><td><b>ServiceMinder Access Requested, if Any:</b> " + serviceMinderAccessType + "</td></tr></table><br><br>If you believe you've received this message in error or if any of the details above are incorrect, please contact saforms@ecumen.org to notify our team.<br><br>Thank you,<br><br><b>The Ecumen Business Transformation and Technology Team</b><br><br>";
+  var saApproverMessage = "Hello,<br><br>A new request has been submitted related to security access for an RSL employee that is either being hired, terminated, or is transferring positions. Please see the details below related to this request.<br><br><table border='1px',width='100%'><tr><td><b>Time of Request:</b> " + time + "</td></tr><tr><td><b>Email Address of Form Submitter:</b> " + submitterEmail + "</td></tr><tr><td><b>Hiring Manager Email Address:</b> " + hiringManagerEmail + "</td></tr><tr><td><b>Nature of Request:</b> " + natureOfRequest + "</td></tr><tr><td><b>Name:</b> " + employeeFirstLastName + "</td></tr><tr><td><b>Employee R Number:</b> " + employeeRNumber + "</td></tr><tr><td><b>Position:</b> " + employeePosition + "</td></tr><tr><td><b>Location:</b> " + employeeLocation + "</td></tr><tr><td><b>Additional Notes:</b> " + notes + "</td></tr><tr><td><b>Email Access Needed:</b> " + emailAccessNeeded + "</td></tr><tr><td><b>ServiceMinder Access Needed:</b> " + serviceMinderAccessNeeded + "</td></tr><tr><td><b>ServiceMinder Access Requested, if Any:</b> " + serviceMinderAccessType + "</td></tr></table><br><br>If you believe you've received this message in error or if any of the information above is incorrect, please contact " + submitterEmail + " to ask for more details.<br><br>";
+  
+  // Variable declaration for image
+  
+  var ecumenLogoImageUrl = "http://webnet.ecumen.org/images/EcumenLogo_NoTag.png";
+  
+  // Image to blob
+  
+  var ecumenLogoBlob = UrlFetchApp.fetch(ecumenLogoImageUrl).getBlob().setName("ecumenLogoBlob");
+  
+  
+  // Prepend embedded image tags for email
+  
+  hiringManagerMessage = hiringManagerMessage + "<img src='cid:ecumenLogoBlob' style='float:center;'/>";
+  
+  // Send email to hiring manager
+  
+  MailApp.sendEmail (hiringManagerEmail, subject, "", {htmlBody: hiringManagerMessage, inlineImages: {ecumenLogoBlob: ecumenLogoBlob}});
+  
+  // Send email to Ecumen SA approver
+  
+  MailApp.sendEmail (saApproverEmail, subject, "", {htmlBody: saApproverMessage, inlineImages: {ecumenLogoBlob: ecumenLogoBlob}});
                 
 }
 
