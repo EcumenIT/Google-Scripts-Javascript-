@@ -13,4 +13,8 @@ Google Sheet for Contractors/Above and Beyond Access Needs for Ecumen Employees 
 
 To edit the code, you must go to Tools -> Script Editor in the Google Sheet you would like to edit.
 
-Please save versions by version numbers and describe in comment in the code what was changed about it.
+////////// UPDATES
+
+11/11/19: Added ABX Tracker variables to SA script, solely for Ecumen employees and contractors.
+
+
