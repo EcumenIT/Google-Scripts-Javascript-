@@ -1,7 +1,7 @@
 # securityAuthorizationJavascript
 The Javascript script that runs in Google Scripts to automatically reroute above and beyond SA requests back to the submitter and administrator.
 
-The system runs off of these four links:
+The system runs off of these four links (NOTE: RSL retired, but saving links here for reference purposes):
 
 Google Form for RSL Applicants: https://docs.google.com/forms/d/e/1FAIpQLSdmTXWdYje9bGu1-8fQinaOSkKgUr7QB3HjxivLY7aJTuH2_A/viewform
 
