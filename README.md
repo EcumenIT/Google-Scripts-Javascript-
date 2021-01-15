@@ -17,4 +17,6 @@ To edit the code, you must go to Tools -> Script Editor in the Google Sheet you 
 
 11/11/19: Added ABX Tracker variables to SA script, solely for Ecumen employees and contractors.
 
+1/4/20: Disabled RSL versions of forms, as RSL is no longer managed by Ecumen.
+
 1/15/20: Added new text to message that sends to submitter asking them to not reply to automated emails.
